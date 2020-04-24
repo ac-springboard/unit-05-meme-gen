@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Springboard - Unit 5 - Assessment 1</title>
+  <link rel="stylesheet" href="main.css">
+  <style type="text/css" rel="stylesheet">
+    .memesContainer{
+      max-width: 100%;
+      height: auto;
+      border: 2px solid yellow;
+    }
+    .meme-elem{
+      max-width: 30%;
+      border: 1px solid red;
+      position: relative;
+      display: inline-block;
+
+    }
+    .memeImg {
+      position: absolute;
+      top: 0;
+    }
+    .memeText{
+      word-wrap: break-word;
+      font-size: 2.5vw !important;
+      color: white;
+      z-index: 1000;
+      position: relative;
+      text-align: center;
+      width: 100%;
+    }
+  </style>
+  <script src="protos.js" type="module"></script>
+  <script src="main/main.js" type="module"></script>
+  <script src="constants.js" type="module"></script>
+</head>
+<body>
+<div id="main-div">
+  <div id="left-div">
+    <div id="info-div">
+      Springboard - Unit 5 - Meme Generator - v1.0
+      <br/>by Almir Campos, Cohort March-02-2020
+    </div>
+    <form id="meme-form">
+      <div class="input-block">
+        <label for="meme-top" class="form-label">Top text:</label>
+        <input id="meme-top" name="meme_top" class="form-input" value="aaa"/>
+        <div id="meme-top-err" data-name="meme-top-err" class="input-err"></div>
+      </div>
+      <div class="input-block">
+        <label for="meme-url" class="form-label">Image URL:</label>
+        <input id="meme-url" name="meme_url" class="form-input" value="bbb"/>
+        <div id="meme-url-err" data-name="meme-url-err" class="input-err"></div>
+      </div>
+      <div class="input-block">
+        <label for="meme-btm" class="form-label">Bottom text:</label>
+        <input id="meme-btm" name="meme_btm" class="form-input" value="bad Word"/>
+        <div id="meme-btm-err" data-name="meme_btm_err" class="input-err"></div>
+      </div>
+      <input id="submit-bt" type="submit" value="Submit"/>
+    </form>
+  </div>
+  <div id="memes-div">memes-div</div>
+</div>
+</body>
+</html>
