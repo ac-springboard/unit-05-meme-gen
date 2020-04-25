@@ -63,7 +63,7 @@ const meme1 = function() {
     .addTop('Top top top bla bla bla bla bla bleh bleh bleh')
     .addBtm('Btm btm btm')
     .build().getMeme();
-}
+};
 
 // const memeContainer1 = MemeContainerClass
 //   .builder()
@@ -81,11 +81,15 @@ const meme2 = function() {
     .addTop(String(new Date().getTime()))
     .addBtm('******btm2****** but why not? I mean, why this thing doesn\'t work???')
     .build().getMeme();
-}
+};
 
-for ( let i = 0; i < 10 ; i++){
-  memes_div.append( Math.random() < 0.5 ? meme1() : meme2() );
-}
+let intId = setInterval(
+             function () {
+               memes_div.append(Math.random() < 0.5 ? meme1() : meme2());
+               memes_div.scrollTop = memes_div.scrollHeight;
+             },5000);
+
+setTimeout( function(){ clearInterval(intId); }, 30000 );
 
 export {Main}
 

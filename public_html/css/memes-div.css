@@ -1,7 +1,7 @@
 
 #memes-div {
-    width: 65%;
-    /*height: 95%;*/
+    width: 68%;
+    max-height: 97.5% !important;
     /*background-color: #aaa;*/
     float: right;
     /*padding: 10px;*/
@@ -16,6 +16,7 @@
     /*flex-direction:*/
     /*align-items: flex-start;*/
     /*vertical-align: baseline;*/
+    border: 2px solid yellow;
 }
 
 /*.meme-container {*/
