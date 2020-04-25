@@ -1,0 +1,15 @@
+#left-div, #memes-div {
+    height: 95%;
+    box-shadow: #333 5px -5px 5px;
+    margin-right: 6px;
+    margin-top: 6px;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+#left-div {
+    width: 25%;
+    color: #ddd;
+    background-color: #444;
+    float: left;
+}

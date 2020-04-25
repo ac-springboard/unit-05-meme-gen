@@ -3,7 +3,7 @@
 import {Form as formjs} from './index/form/form.js';
 import {konz}           from "../constants.js";
 import {Utils}          from "../utils.js";
-import {MemeClass}      from "./factory/meme/meme.js";
+import {MemeClass}      from "./factory/meme.js";
 
 konz.init();
 

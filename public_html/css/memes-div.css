@@ -1,0 +1,14 @@
+
+#memes-div {
+    width: 65%;
+    background-color: #aaa;
+    float: right;
+    padding: 10px;
+}
+
+.memes-container{
+    max-width: 100%;
+    height: auto;
+    border: 2px solid yellow;
+    box-shadow: gray 4px 4px 4px;
+}

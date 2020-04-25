@@ -31,7 +31,7 @@ export class MemeClass {
       addTop(formTop) {
         top = document.createElement('div');
         top.innerText = formTop;
-        top.classList.add('memeText');
+        top.classList.add('meme-text');
         meme.append(top);
         // self.getMeme().append(top);
         // console.log('meme/top', self.meme);
@@ -41,7 +41,7 @@ export class MemeClass {
       addBtm(formBtm) {
         btm = document.createElement('div');
         btm.innerText = formBtm;
-        btm.classList.add('memeText');
+        btm.classList.add('meme-text');
         meme.append(btm);
         // self.meme.append(btm);
         // return MemeClass.builder;
