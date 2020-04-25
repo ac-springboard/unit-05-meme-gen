@@ -22,7 +22,7 @@ export class MemeContainerClass {
         removeBt.addEventListener('click', () => {
           memeContainer.remove();
         });
-        memeContainer.append(removeBt);
+        // memeContainer.append(removeBt);
         return this;
       },
       build() {

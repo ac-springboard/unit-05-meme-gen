@@ -58,6 +58,7 @@ const memes_div = document.querySelector('#memes-div');
 
 const meme1 = MemeClass
   .builder()
+  .addImg('https://cdn-prod.medicalnewstoday.com/content/images/articles/325/325132/a-depiction-of-a-bacteriophage.jpg')
   .addTop('Top top top')
   .addBtm('Btm btm btm')
   .build().getMeme();
@@ -77,7 +78,9 @@ const memeContainer2 = MemeContainerClass
   .getMemeContainer();
 const meme2 = MemeClass
   .builder()
-  .addBtm('******btm2******')
+  // .addImg('https://cdn-prod.medicalnewstoday.com/content/images/articles/325/325132/a-depiction-of-a-bacteriophage.jpg')
+  .addTop('the top of the world')
+  .addBtm('******btm2****** but why not? I mean, why this thing doesn\'t work???')
   .build().getMeme();
 memeContainer2.append(meme2);
 memes_div.append(memeContainer2);

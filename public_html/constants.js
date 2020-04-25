@@ -34,7 +34,7 @@ export class konz {
       remove: '⊗'
     };
     konz.css = {
-      memeTextFontSize: '1.5vw',
+      memeTextFontSize: '1.8vw',
     }
   }
 }
