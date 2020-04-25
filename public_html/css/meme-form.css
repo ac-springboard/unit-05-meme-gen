@@ -39,6 +39,7 @@
     font-size: 0.7em;
     color: #333;
     height: 1.5em;
+    transition: 0.7s;
 }
 
 #meme-form #submit-bt:hover {

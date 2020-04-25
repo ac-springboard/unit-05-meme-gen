@@ -1,20 +1,23 @@
 .meme-elem{
-    max-width: 30%;
+    width: 100%;
     border: 1px solid green;
     position: relative;
     display: inline-block;
+    box-shadow: gray 4px 4px 4px;
 }
 
-.meme-img {
+.meme-elem .meme-img {
     position: absolute;
     top: 0;
 }
-.meme-text{
+.meme-elem .meme-text{
     word-wrap: break-word;
-    font-size: 2vw !important;
+    /*font-size: 2vw;*/
     color: white;
     z-index: 1000;
     position: relative;
     text-align: center;
     width: 100%;
 }
+
+

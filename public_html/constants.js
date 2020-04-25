@@ -29,6 +29,12 @@ export class konz {
     };
     konz.errMsg = {
       badWords: 'Please, avoid using bad words.'
+    };
+    konz.symbols = {
+      remove: '⊗'
+    };
+    konz.css = {
+      memeTextFontSize: '1.5vw',
     }
   }
 }

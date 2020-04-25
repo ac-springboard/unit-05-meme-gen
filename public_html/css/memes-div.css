@@ -6,9 +6,29 @@
     padding: 10px;
 }
 
-.memes-container{
-    max-width: 100%;
+.meme-container {
+    position: relative;
+    max-width: 30%;
     height: auto;
-    border: 2px solid yellow;
-    box-shadow: gray 4px 4px 4px;
+    /*border: 2px solid yellow;*/
+    padding: 1vw 1vw 0 0;
+    margin: 10px;
+    display: inline-block;
+}
+
+.meme-container .meme-container-remove-bt {
+    position: absolute;
+    top: -1vw;
+    right: 0;
+    font-size: 3vw;
+    color: #666;
+    z-index: 2000;
+    user-select: none;
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.7s;
+}
+
+.meme-container:hover .meme-container-remove-bt{
+    opacity: 1;
 }
