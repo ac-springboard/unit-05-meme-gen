@@ -56,69 +56,36 @@ class Main {
 Main.init();
 const memes_div = document.querySelector('#memes-div');
 
-const meme1 = MemeClass
-  .builder()
-  .addImg('https://cdn-prod.medicalnewstoday.com/content/images/articles/325/325132/a-depiction-of-a-bacteriophage.jpg')
-  .addTop('Top top top')
-  .addBtm('Btm btm btm')
-  .build().getMeme();
+const meme1 = function() {
+  return MemeClass
+    .builder()
+    .addImg('https://cdn-prod.medicalnewstoday.com/content/images/articles/325/325132/a-depiction-of-a-bacteriophage.jpg')
+    .addTop('Top top top bla bla bla bla bla bleh bleh bleh')
+    .addBtm('Btm btm btm')
+    .build().getMeme();
+}
 
-const memeContainer1 = MemeContainerClass
-  .builder()
-  .addRemoveBt()
-  .build()
-  .getMemeContainer();
-memeContainer1.append(meme1);
-memes_div.append(memeContainer1);
+// const memeContainer1 = MemeContainerClass
+//   .builder()
+//   .addRemoveBt()
+//   .build()
+//   .getMemeContainer();
+// memeContainer1.append(meme1);
 
-const memeContainer2 = MemeContainerClass
-  .builder()
-  .addRemoveBt()
-  .build()
-  .getMemeContainer();
-const meme2 = MemeClass
-  .builder()
-  // .addImg('https://cdn-prod.medicalnewstoday.com/content/images/articles/325/325132/a-depiction-of-a-bacteriophage.jpg')
-  .addTop('the top of the world')
-  .addBtm('******btm2****** but why not? I mean, why this thing doesn\'t work???')
-  .build().getMeme();
-memeContainer2.append(meme2);
-memes_div.append(memeContainer2);
+// memes_div.append(meme1);
 
-// console.log('memeContainer', memeContainer);
+const meme2 = function() {
 
-// const covid = new Promise( (accept, reject) => {
+  return MemeClass
+    .builder()
+    .addTop(String(new Date().getTime()))
+    .addBtm('******btm2****** but why not? I mean, why this thing doesn\'t work???')
+    .build().getMeme();
+}
 
-
-// const memeContainer = document.createElement('div');
-// const imgElem       = document.createElement('img');
-// const memeTop       = document.createElement('div');
-
-// imgElem.setAttribute('src',
-//                      'https://images.newscientist.com/wp-content/uploads/2020/02/11165812/c0481846-wuhan_novel_coronavirus_illustration-spl.jpg');
-// imgElem.classList.add('test'); memeTop.classList.add('top');
-// memeTop.innerText = "This is the top of this fantastic memeContainer.";
-// memeContainer.appendChild(imgElem); memeContainer.appendChild(memeTop);
-
-// memeContainer.appendChild(me);
-// memeContainer.classList.add('container');
-
-
-//   if (accept ){
-//     console.log( 'accepted!!!');
-//     // console.log( imgElem, memes_div, imgElem.width );
-//     return imgElem;
-//   }
-//   if ( reject ){
-//     console.log( 'REJECT: ', reject );
-//     return undefined;
-//   }
-// } );
-
-// Promise.resolve(covid).then( imgElem => {
-//     console.log( imgElem );
-// });
-// Promise.resolve( covid );
+for ( let i = 0; i < 10 ; i++){
+  memes_div.append( Math.random() < 0.5 ? meme1() : meme2() );
+}
 
 export {Main}
 
