@@ -32,7 +32,10 @@ class Main {
       });
       inpt.addEventListener('focusout', (e) => {
         errKey = Utils.htmlIdToJs('meme-', e.target.id) + 'Err';
-        formjs.validateInputs();
+        const valid = formjs.validateInputs();
+        if ( valid ){
+          
+        }
       });
     });
   }
