@@ -4,9 +4,18 @@ import {konz} from "../../constants.js";
 
 export class MemeClass {
   static builder = function () {
-    let meme   = document.createElement('div');
-    let hasImg = false;
-    let count  = 0;
+    const meme        = document.createElement('div');
+    let hasImg        = false;
+    let count         = 0;
+    const addRemoveBt = function () {
+      let removeBt       = document.createElement('div');
+      removeBt.innerText = konz.symbols.remove;
+      removeBt.classList.add('meme-remove-bt');
+      removeBt.addEventListener('click', () => {
+        meme.remove();
+      });
+      meme.append( removeBt );
+    }
     return {
       addImg(formUrl) {
         let img = document.createElement('img');
@@ -41,8 +50,9 @@ export class MemeClass {
         meme.id = id;
         console.log('hasImg', hasImg);
         if (!hasImg) {
-          this.addImg( Math.random() < 0.5 ? 'default.png': 'small.png');
+          this.addImg(Math.random() < 0.5 ? 'default.png' : 'small.png');
         }
+        addRemoveBt();
         const memeClass = new MemeClass(meme);
         return memeClass;
       }

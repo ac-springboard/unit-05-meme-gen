@@ -3,7 +3,7 @@
     max-width: 300px;
     position: relative;
     box-shadow: #555 5px 5px 5px;
-    margin: 5px 5px
+    margin: 2vw 2vw;
 }
 
 .meme-img {
@@ -30,5 +30,34 @@
     position: absolute;
     bottom: 0;
 }
+
+
+.meme-remove-bt {
+    position: absolute;
+    top: -2.10vw;
+    right: -1.05vw;
+    font-size: 3vw;
+    color: yellow;
+    z-index: 10000;
+    user-select: none;
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.7s;
+}
+
+.meme-elem:hover .meme-remove-bt{
+    opacity: 1;
+    /*color: rgb( 255, 255, 0);*/
+    transition: 0.7s;
+}
+.meme-remove-bt:hover {
+    opacity: 1;
+    color: red;
+    font-size: 5vw;
+    font-weight: bolder;
+    top: -3.6vw;
+    right: -1.8vw;
+}
+
 
 

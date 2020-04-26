@@ -70,7 +70,7 @@ if (true) {
   }, 2000);
   setTimeout(function () {
     clearInterval(intId);
-  }, 30000);
+  }, 10000);
 }
 
 export {Main}

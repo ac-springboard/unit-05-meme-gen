@@ -15,7 +15,7 @@ const mainDiv  = document.querySelector('#main-div');
       const urlErr = document.querySelector('#meme-url-err');
       const btm    = document.querySelector('#meme-btm');
       const btmErr = document.querySelector('#meme-btm-err');
-    const memesDiv = document.querySelector('#memes-div');
+  const memesDiv = document.querySelector('#memes-div');
 // @formatter:on
 
 export class konz {
