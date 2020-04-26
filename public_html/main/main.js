@@ -43,20 +43,14 @@ class Main {
 
 Main.init();
 
-// console.log('A');
-// fetch('https://www.reddit.com/r/javascript/top/.json?limit=5', { mode: "cors", headers: {
-//   "Access-Control-Allow-Origin":"*"
-//   }})
-//   .then((res) => {
-//     console.log(res);
-    console.log('B');
-let imgurl='https://thumbs.dreamstime.com/b/funny-business-meeting-boss-skeletons-funny-business-meeting-boss-skeletons-179075287.jpg';
-    fetch(imgurl).then(res => console.log(res));
-  // });
-
-
 // For testing purposes
 if (false) {
+
+  console.log('B');
+  let imgurl = 'https://thumbs.dreamstime.com/b/funny-business-meeting-boss-skeletons-funny-business-meeting-boss-skeletons-179075287.jpg';
+  fetch(imgurl).then(res => console.log(res));
+
+
   const memes_div = document.querySelector('#memes-div');
 
   const meme1 = function () {

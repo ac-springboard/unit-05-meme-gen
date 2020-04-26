@@ -51,6 +51,7 @@ export class konz {
     };
     konz.css     = {
       memeTextFontSize: '2.2vw',
+      memeTextMaxFontSize: '3.2vw'
     }
   }
 }

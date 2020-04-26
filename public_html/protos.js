@@ -1,7 +1,7 @@
 'use strict';
 
 const badWords = [
-  'bad word', 'donald trump'
+  'bad word', 'trump'
 ];
 
 String.prototype.containsBadWords = function () {

@@ -34,6 +34,7 @@ export class MemeClass {
           top.classList.add('meme-text');
           top.classList.add('meme-top');
           top.style.fontSize = konz.css.memeTextFontSize;
+          top.style.maxFontSize = konz.css.memeTextMaxFontSize;
           meme.append(top);
         }
         return this;
@@ -45,6 +46,7 @@ export class MemeClass {
           btm.classList.add('meme-text');
           btm.classList.add('meme-btm');
           btm.style.fontSize = konz.css.memeTextFontSize;
+          btm.style.maxFontSize = konz.css.memeTextMaxFontSize;
           meme.append(btm);
         }
         return this;
