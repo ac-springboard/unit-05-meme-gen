@@ -22,7 +22,7 @@
 
 #form-div .input-err{
     color: #ddd;
-    font-size: 0.7em;
+    font-size: 0.8em;
     font-style: italic;
     text-decoration: underline;
     text-decoration-color: red;
@@ -32,17 +32,19 @@
 
 #form-div #submit-bt {
     border: none;
-    background-color: rgba(255, 127, 64, 0.6);
+    background-color: rgba(255, 127, 64, 0.3);
     border-radius: 3px;
     width: 101%;
     margin-top: 15px;
-    font-size: 0.7em;
+    font-size: 0.8em;
     color: #333;
     height: 1.5em;
     transition: 0.7s;
 }
 
 #form-div #submit-bt:hover {
-    background-color: rgba(255, 127, 64, 0.8);
+    background-color: rgba(255, 127, 64, 1.0);
     box-shadow: #333 3px 3px 3px;
+    cursor: pointer;
+    height: 2em;
 }

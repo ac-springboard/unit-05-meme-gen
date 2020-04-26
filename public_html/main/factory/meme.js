@@ -14,33 +14,39 @@ export class MemeClass {
       removeBt.addEventListener('click', () => {
         meme.remove();
       });
-      meme.append( removeBt );
+      meme.append(removeBt);
     }
     return {
       addImg(formUrl) {
-        let img = document.createElement('img');
-        img.setAttribute('src', formUrl);
-        img.classList.add('meme-img');
-        meme.append(img);
-        hasImg = true;
+        if (!!formUrl) {
+          let img = document.createElement('img');
+          img.setAttribute('src', formUrl);
+          img.classList.add('meme-img');
+          meme.append(img);
+          hasImg = true;
+        }
         return this;
       },
       addTop(formTop) {
-        let top       = document.createElement('div');
-        top.innerHTML = formTop;
-        top.classList.add('meme-text');
-        top.classList.add('meme-top');
-        top.style.fontSize = konz.css.memeTextFontSize;
-        meme.append(top);
+        if ( !!formTop ) {
+          let top       = document.createElement('div');
+          top.innerHTML = formTop;
+          top.classList.add('meme-text');
+          top.classList.add('meme-top');
+          top.style.fontSize = konz.css.memeTextFontSize;
+          meme.append(top);
+        }
         return this;
       },
       addBtm(formBtm) {
-        let btm       = document.createElement('div');
-        btm.innerHTML = formBtm;
-        btm.classList.add('meme-text');
-        btm.classList.add('meme-btm');
-        btm.style.fontSize = konz.css.memeTextFontSize;
-        meme.append(btm);
+        if ( !!formBtm ) {
+          let btm       = document.createElement('div');
+          btm.innerHTML = formBtm;
+          btm.classList.add('meme-text');
+          btm.classList.add('meme-btm');
+          btm.style.fontSize = konz.css.memeTextFontSize;
+          meme.append(btm);
+        }
         return this;
       },
       build() {
@@ -50,7 +56,8 @@ export class MemeClass {
         meme.id = id;
         console.log('hasImg', hasImg);
         if (!hasImg) {
-          this.addImg(Math.random() < 0.5 ? 'default.png' : 'small.png');
+          // this.addImg(Math.random() < 0.5 ? 'default.png' : 'small.png');
+          this.addImg('default.png');
         }
         addRemoveBt();
         const memeClass = new MemeClass(meme);

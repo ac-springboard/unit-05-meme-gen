@@ -3,7 +3,7 @@
 import {Form as formjs} from './index/form/form.js';
 import {konz}           from "../constants.js";
 import {Utils}          from "../utils.js";
-import {MemeClass}          from "./factory/meme.js";
+import {MemeClass}      from "./factory/meme.js";
 
 konz.init();
 
@@ -43,15 +43,27 @@ class Main {
 
 Main.init();
 
+// console.log('A');
+// fetch('https://www.reddit.com/r/javascript/top/.json?limit=5', { mode: "cors", headers: {
+//   "Access-Control-Allow-Origin":"*"
+//   }})
+//   .then((res) => {
+//     console.log(res);
+    console.log('B');
+let imgurl='https://thumbs.dreamstime.com/b/funny-business-meeting-boss-skeletons-funny-business-meeting-boss-skeletons-179075287.jpg';
+    fetch(imgurl).then(res => console.log(res));
+  // });
+
+
 // For testing purposes
-if (true) {
+if (false) {
   const memes_div = document.querySelector('#memes-div');
 
   const meme1 = function () {
     return MemeClass
       .builder()
       .addImg(
-        'https://cdn-prod.medicalnewstoday.com/content/images/articles/325/325132/a-depiction-of-a-bacteriophage.jpg')
+        'https://thumbs.dreamstime.com/b/funny-monkey-face-maranhao-brasil-30428227.jpg')
       .addTop('Top top top bla bla bla bla bla bleh bleh bleh')
       .addBtm('Btm btm btm').build().getMeme();
   };

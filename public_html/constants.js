@@ -21,6 +21,12 @@ const mainDiv  = document.querySelector('#main-div');
 export class konz {
 
   static init() {
+    konz.divs = {
+      main: mainDiv,
+      left: leftDiv,
+      info: infoDiv,
+      memes: memesDiv
+    };
     konz.form    = {
       form  : formDiv,
       top   : top,
@@ -44,7 +50,7 @@ export class konz {
       remove: '⊗'
     };
     konz.css     = {
-      memeTextFontSize: '1.8vw',
+      memeTextFontSize: '2.2vw',
     }
   }
 }
