@@ -1,36 +1,13 @@
-
 #memes-div {
     width: 68%;
     max-height: 97.5% !important;
-    /*background-color: #aaa;*/
     float: right;
-    /*padding: 10px;*/
-    /*display: list-item;*/
-    /*position: relative;*/
-    /*display: block;*/
-    /*overflow: scroll;*/
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
     overflow-y: scroll;
-    /*flex-direction:*/
-    /*align-items: flex-start;*/
-    /*vertical-align: baseline;*/
     border: 2px solid yellow;
 }
-
-/*.meme-container {*/
-    /*position: relative;*/
-    /*!*float: left;*!*/
-    /*width: 30%;*/
-    /*min-width: 30%;*/
-    /*!*height: 30%;*!*/
-    /*!*min-height: 30%;*!*/
-    /*border: 2px solid yellow;*/
-    /*!*padding: 1vw 1vw 0 0;*!*/
-    /*margin: 10px;*/
-    /*display: inline-block;*/
-/*}*/
 
 .meme-container-remove-bt {
     position: absolute;
@@ -50,7 +27,6 @@
     font-weight: bolder;
 }
 
-
-.meme-container:hover .meme-container-remove-bt{
+.meme-container:hover .meme-container-remove-bt {
     opacity: 1;
 }

@@ -1,26 +1,26 @@
-#meme-form .input-block {
+#form-div .input-block {
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
-#meme-form .form-label {
+#form-div .form-label {
     font-size: 0.7em;
     color: coral;
     display: block;
 }
 
-#meme-form .form-input {
+#form-div .form-input {
     border-radius: 5px;
     display: block;
     width: 100%;
     height: 1.5em;
 }
 
-#meme-form .form-input:hover {
+#form-div .form-input:hover {
     border: 2px solid red;
 }
 
-#meme-form .input-err{
+#form-div .input-err{
     color: #ddd;
     font-size: 0.7em;
     font-style: italic;
@@ -30,7 +30,7 @@
     text-align: right;
 }
 
-#meme-form #submit-bt {
+#form-div #submit-bt {
     border: none;
     background-color: rgba(255, 127, 64, 0.6);
     border-radius: 3px;
@@ -42,7 +42,7 @@
     transition: 0.7s;
 }
 
-#meme-form #submit-bt:hover {
+#form-div #submit-bt:hover {
     background-color: rgba(255, 127, 64, 0.8);
     box-shadow: #333 3px 3px 3px;
 }

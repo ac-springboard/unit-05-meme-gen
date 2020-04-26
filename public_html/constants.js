@@ -1,18 +1,28 @@
 'use strict';
 
-const form   = document.querySelector('#meme-form');
-const top    = document.querySelector('#meme-top');
-const topErr = document.querySelector('#meme-top-err');
-const url    = document.querySelector('#meme-url');
-const urlErr = document.querySelector('#meme-url-err');
-const btm    = document.querySelector('#meme-btm');
-const btmErr = document.querySelector('#meme-btm-err');
+/**
+ *
+ * Static Divs
+ */
+  // @formatter:off
+const mainDiv  = document.querySelector('#main-div');
+  const leftDiv  = document.querySelector('#left-div');
+    const infoDiv  = document.querySelector('#info-div');
+    const formDiv  = document.querySelector('#form-div');
+      const top    = document.querySelector('#meme-top');
+      const topErr = document.querySelector('#meme-top-err');
+      const url    = document.querySelector('#meme-url');
+      const urlErr = document.querySelector('#meme-url-err');
+      const btm    = document.querySelector('#meme-btm');
+      const btmErr = document.querySelector('#meme-btm-err');
+    const memesDiv = document.querySelector('#memes-div');
+// @formatter:on
 
 export class konz {
 
   static init() {
-    konz.form = {
-      form  : form,
+    konz.form    = {
+      form  : formDiv,
       top   : top,
       topErr: topErr,
       url   : url,
@@ -25,15 +35,15 @@ export class konz {
       errs  : [
         topErr, urlErr, btmErr
       ]
-    // console.log('konz.form', JSON.stringify(konz.form));
+      // console.log('konz.form', JSON.stringify(konz.form));
     };
-    konz.errMsg = {
+    konz.errMsg  = {
       badWords: 'Please, avoid using bad words.'
     };
     konz.symbols = {
       remove: '⊗'
     };
-    konz.css = {
+    konz.css     = {
       memeTextFontSize: '1.8vw',
     }
   }

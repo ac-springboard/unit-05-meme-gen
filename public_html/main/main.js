@@ -3,29 +3,17 @@
 import {Form as formjs} from './index/form/form.js';
 import {konz}           from "../constants.js";
 import {Utils}          from "../utils.js";
-import {MemeClass}      from "./factory/meme.js";
-import {MemeContainerClass}      from "./factory/meme-container.js";
+import {MemeClass}          from "./factory/meme.js";
 
 konz.init();
 
 class Main {
 
   static init() {
-    //
     Main.addSubmitListener();
     Main.addInputListeners();
-    //
-    // Main.cssInit();
   }
 
-  // static cssInit(){
-  //   let texts = document.getElementsByClassName('meme-text');
-  //   console.log( 'texts', texts );
-  //   texts.forEach( (t) => {
-  //     console.log( 't', t );
-  //     t.style.fontSize = konz.css.memeTextFontSize;
-  //   });
-  // }
   static addSubmitListener() {
     konz.form.form
         .addEventListener('submit', (e) => {
@@ -43,10 +31,10 @@ class Main {
         konz.form[errKey].innerText = '';
       });
       inpt.addEventListener('focusout', (e) => {
-        errKey = Utils.htmlIdToJs('meme-', e.target.id) + 'Err';
+        errKey      = Utils.htmlIdToJs('meme-', e.target.id) + 'Err';
         const valid = formjs.validateInputs();
-        if ( valid ){
-          
+        if (valid) {
+
         }
       });
     });
@@ -54,42 +42,36 @@ class Main {
 }
 
 Main.init();
-const memes_div = document.querySelector('#memes-div');
 
-const meme1 = function() {
-  return MemeClass
-    .builder()
-    .addImg('https://cdn-prod.medicalnewstoday.com/content/images/articles/325/325132/a-depiction-of-a-bacteriophage.jpg')
-    .addTop('Top top top bla bla bla bla bla bleh bleh bleh')
-    .addBtm('Btm btm btm')
-    .build().getMeme();
-};
+// For testing purposes
+if (true) {
+  const memes_div = document.querySelector('#memes-div');
 
-// const memeContainer1 = MemeContainerClass
-//   .builder()
-//   .addRemoveBt()
-//   .build()
-//   .getMemeContainer();
-// memeContainer1.append(meme1);
+  const meme1 = function () {
+    return MemeClass
+      .builder()
+      .addImg(
+        'https://cdn-prod.medicalnewstoday.com/content/images/articles/325/325132/a-depiction-of-a-bacteriophage.jpg')
+      .addTop('Top top top bla bla bla bla bla bleh bleh bleh')
+      .addBtm('Btm btm btm').build().getMeme();
+  };
+  const meme2 = function () {
+    return MemeClass
+      .builder()
+      .addTop(String(new Date().getTime()))
+      .addBtm(
+        '******btm2****** but why not? I mean, why this thing doesn\'t work???')
+      .build().getMeme();
+  };
 
-// memes_div.append(meme1);
-
-const meme2 = function() {
-
-  return MemeClass
-    .builder()
-    .addTop(String(new Date().getTime()))
-    .addBtm('******btm2****** but why not? I mean, why this thing doesn\'t work???')
-    .build().getMeme();
-};
-
-let intId = setInterval(
-             function () {
-               memes_div.append(Math.random() < 0.5 ? meme1() : meme2());
-               memes_div.scrollTop = memes_div.scrollHeight;
-             },5000);
-
-setTimeout( function(){ clearInterval(intId); }, 30000 );
+  let intId = setInterval(function () {
+    memes_div.append(Math.random() < 0.5 ? meme1() : meme2());
+    memes_div.scrollTop = memes_div.scrollHeight;
+  }, 2000);
+  setTimeout(function () {
+    clearInterval(intId);
+  }, 30000);
+}
 
 export {Main}
 
