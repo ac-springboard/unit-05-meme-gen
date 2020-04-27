@@ -32,10 +32,9 @@ class Main {
       });
       inpt.addEventListener('focusout', (e) => {
         errKey      = Utils.htmlIdToJs('meme-', e.target.id) + 'Err';
-        const valid = formjs.validateInputs();
-        if (valid) {
-
-        }
+        console.log( 'errKey', errKey);
+        // const valid = formjs.validateInputs();
+        formjs.validation();
       });
     });
   }
@@ -44,7 +43,7 @@ class Main {
 Main.init();
 
 // For testing purposes
-if (false) {
+if (true) {
 
   console.log('B');
   let imgurl = 'https://thumbs.dreamstime.com/b/funny-business-meeting-boss-skeletons-funny-business-meeting-boss-skeletons-179075287.jpg';
