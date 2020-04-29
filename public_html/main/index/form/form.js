@@ -43,7 +43,7 @@ export class Form {
       let valid  = true;
 
       function containsBadWords(elem) {
-        return form[elem].value.toUpperCase().containsBadWords();
+        return !form[elem].value.toUpperCase().containsBadWords();
       }
 
       let err;

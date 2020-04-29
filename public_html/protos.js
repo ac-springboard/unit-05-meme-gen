@@ -5,7 +5,15 @@ const badWords = [
 ];
 
 String.prototype.containsBadWords = function () {
-  const str = this.valueOf().toLowerCase();
-  const result = badWords.includes(str);
-  return result;
+  const regexp = /\w+/g;
+  const words = this.valueOf().toLowerCase().match(regexp);
+  console.log( 'words', words );
+  words.forEach( word => {
+    if ( badWords.includes( word )){
+      return true;
+    }
+  });
+  return false;
+  // const result = badWords.includes(str);
+  // return result;
 };
