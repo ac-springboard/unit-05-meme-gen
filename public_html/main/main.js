@@ -4,6 +4,7 @@ import {Form as formjs} from './index/form/form.js';
 import {konz}           from "../constants.js";
 import {Utils}          from "../utils.js";
 import {MemeClass}      from "./factory/meme.js";
+import {FormValidation} from "./index/form/form-validation.js";
 
 konz.init();
 
@@ -12,6 +13,7 @@ class Main {
   static init() {
     Main.addSubmitListener();
     Main.addInputListeners();
+    formjs.init();
   }
 
   static addSubmitListener() {
@@ -34,7 +36,7 @@ class Main {
         errKey      = Utils.htmlIdToJs('meme-', e.target.id) + 'Err';
         console.log( 'errKey', errKey);
         // const valid = formjs.validateInputs();
-        formjs.validation();
+        FormValidation.validation();
       });
     });
   }
