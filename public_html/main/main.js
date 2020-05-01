@@ -43,7 +43,7 @@ class Main {
 Main.init();
 
 // For testing purposes
-if (true) {
+if (false) {
 
   console.log('B');
   let imgurl = 'https://thumbs.dreamstime.com/b/funny-business-meeting-boss-skeletons-funny-business-meeting-boss-skeletons-179075287.jpg';

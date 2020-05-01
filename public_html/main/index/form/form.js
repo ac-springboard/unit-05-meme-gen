@@ -15,11 +15,13 @@ export class Form {
           console.log('whoowhoo!',);
           // konz.divs.memes.append( )
         } else {
-          console.log( 'konz.form.url', konz.form.url, document.getElementById("meme-url"), document.activeElement );
+          console.log('konz.form.url', konz.form.url,
+                      document.getElementById("meme-url"),
+                      document.activeElement);
           // if (!document.getElementById("meme-url").hasFocus()) {
-            konz.form.urlErr.innerHTML =
-              'Oops! Something doesn\'t seem ok (' + (response.status) + ')';
-            console.log('konz.form.urlErr', konz.form.urlErr);
+          konz.form.urlErr.innerHTML =
+            'Oops! Something doesn\'t seem ok (' + (response.status) + ')';
+          console.log('konz.form.urlErr', konz.form.urlErr);
           // } else {
           //
           //   konz.form.urlErr.innerHTML = '';
@@ -43,12 +45,13 @@ export class Form {
       let valid  = true;
 
       function containsBadWords(elem) {
-        return !form[elem].value.toUpperCase().containsBadWords();
+        return form[elem].value.toLowerCase().containsBadWords();
       }
 
       let err;
       ['top', 'url', 'btm'].forEach(value => {
-        if (containsBadWords(value)) {
+        let cbw = containsBadWords(value);
+        if (cbw) {
           err                 = value + 'Err';
           form[err].innerText = konz.errMsg.badWords;
           valid               = false;
