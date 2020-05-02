@@ -1,6 +1,6 @@
 "use strict";
 
-import {konz} from "../../constants.js";
+import {konz} from "./constants.js";
 
 export class MemeClass {
   static builder = function () {

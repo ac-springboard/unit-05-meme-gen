@@ -1,21 +1,21 @@
-"use eurstrict";
+"use strict";
 
 export class Exhibitionist {
   constructor(){
-    this.voyeurs = new Map();
+    this.voyeurs = [];
   }
 
   addVoyeur( voyeur ) {
-    this.voyeurs.set(voyeur.id, voyeur);
+    this.voyeurs.push(voyeur);
   }
 
   removeVoyeur( voyeur ){
-    this.voyeurs.delete( voyeur.id );
+    this.voyeurs.remove( voyeur );
   }
 
   notify( data ){
     if ( this.voyeurs.length > 0 ){
-      this.voyeurs.forEach( (key, obj ) => obj.update(data) );
+      this.voyeurs.forEach( voyeur => voyeur.update(data) );
     }
   }
 }

@@ -1,48 +1,48 @@
 'use strict';
 
-import {Form as formjs} from './index/form/form.js';
-import {konz}           from "../constants.js";
-import {Utils}          from "../utils.js";
-import {MemeClass}      from "./factory/meme.js";
-import {FormValidation} from "./index/form/form-validation.js";
+import {Form}           from './form.js';
+import {konz}           from "./constants.js";
+import {Utils}          from "./utils.js";
+import {MemeClass}      from "./meme.js";
+import {FormValidation} from "./form-validation.js";
 
 konz.init();
 
-class Main {
+// class Main {
+//
+//   constructor() {
+//     this.addSubmitListener();
+//     this.addInputListeners();
+// formjs.init();
+// }
 
-  static init() {
-    Main.addSubmitListener();
-    Main.addInputListeners();
-    formjs.init();
-  }
+const form = new Form();
+const validation = new FormValidation( form );
+// validation.addVoyeur(form);
 
-  static addSubmitListener() {
-    konz.form.form
-        .addEventListener('submit', (e) => {
-          e.preventDefault();
-          formjs.submit();
-        });
-  }
-
-  static addInputListeners() {
-    konz.form.inputs.forEach((inpt) => {
-      let errKey;
-      inpt.addEventListener('click', (e) => {
-        errKey                      =
-          Utils.htmlIdToJs('meme-', e.target.id) + 'Err';
-        konz.form[errKey].innerText = '';
+(function () {
+  konz.form.form
+      .addEventListener('submit', (e) => {
+        e.preventDefault();
+        validation.onSubmit();
       });
-      inpt.addEventListener('focusout', (e) => {
-        errKey      = Utils.htmlIdToJs('meme-', e.target.id) + 'Err';
-        console.log( 'errKey', errKey);
-        // const valid = formjs.validateInputs();
-        FormValidation.validation();
-      });
+})();
+
+(function () {
+  konz.form.inputs.forEach((inputElem) => {
+    inputElem.addEventListener('click', (e) => {
+      validation.onInputClick(e);
     });
-  }
-}
+    inputElem.addEventListener('focusout', (e) => {
+      validation.onInputFocusOut(e);
+    });
+  });
+})();
+// }
 
-Main.init();
+
+
+// Main.init();
 
 // For testing purposes
 if (false) {
@@ -80,6 +80,6 @@ if (false) {
   }, 10000);
 }
 
-export {Main}
+// export {Main as main}
 
 
