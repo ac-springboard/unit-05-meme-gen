@@ -5,21 +5,22 @@ import {konz}           from "./constants.js";
 import {Utils}          from "./utils.js";
 import {MemeClass}      from "./meme.js";
 import {FormValidation} from "./form-validation.js";
+import {Index}          from "./index.js";
 
 konz.init();
 
-
-const form = new Form();
-
-//  Form observes FormValidation
+// Fetish chain
 //
-const formval = new FormValidation( form );
+const index   = new Index();
+const form    = index.getForm();
+const formval = form.getFormVal();
+
 
 (function () {
   konz.form.form
       .addEventListener('submit', (e) => {
         e.preventDefault();
-        formval.onSubmit(e);
+        form.submit();
       });
 })();
 

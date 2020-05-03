@@ -1,13 +1,13 @@
 "use strict";
 
 import {konz}          from "./constants.js";
-import {Form}          from "./form.js";
 import {Exhibitionist} from "./exhibitionist.js";
 import {Utils}         from "./utils.js";
 
 export class FormValidation extends Exhibitionist {
 
   static state = {
+    type: '',
     url: {
       valid: null,
       err  : []
@@ -58,14 +58,20 @@ export class FormValidation extends Exhibitionist {
     this.addVoyeur(this.voyeur);
   }
 
-  onSubmit(e) {
-    FormValidation.state.resetAll();
-    const promiseArray = [];
-    promiseArray.push(this.validateUrl(konz.form.url.value));
-    promiseArray.push(this.containsBadWord('url', konz.form.url.value));
-    promiseArray.push(this.containsBadWord('top', konz.form['top'].value));
-    promiseArray.push(this.containsBadWord('btm', konz.form['btm'].value));
-    this.validatePromises(promiseArray);
+  validateAll() {
+    const self = this;
+    return new Promise((resolve) => {
+      FormValidation.state.resetAll();
+      const promiseArray = [];
+      promiseArray.push(self.validateUrl(konz.form.url.value));
+      promiseArray.push(self.containsBadWord('url', konz.form.url.value));
+      promiseArray.push(self.containsBadWord('top', konz.form['top'].value));
+      promiseArray.push(self.containsBadWord('btm', konz.form['btm'].value));
+      const result = self.validatePromises(promiseArray).then(function() {
+        return FormValidation.state;
+      });
+      resolve( result );
+    });
   }
 
   onInputEvent(e) {
@@ -85,14 +91,16 @@ export class FormValidation extends Exhibitionist {
 
   validatePromises(promiseArray) {
     const self = this;
-    Promise.all(promiseArray).then(function () {
+    return Promise.all(promiseArray).then((values) => {
       self.notify(FormValidation.state);
+      return values;
     });
   }
 
   containsBadWord(key, value) {
     return new Promise((resolve) => {
       const valid = !value.toLowerCase().containsBadWords();
+      FormValidation.state[key].valid = valid;
       if (!valid) {
         FormValidation.state.updateErr(key, 'bdw');
       }
