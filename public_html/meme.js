@@ -2,9 +2,9 @@
 
 import {konz} from "./constants.js";
 
-export class MemeClass {
+export class MemeBuilder {
   static builder = function () {
-    const meme        = document.createElement('div');
+    const meme  = document.createElement('div');
     let hasImg        = false;
     let count         = 0;
     const addRemoveBt = function () {
@@ -12,10 +12,11 @@ export class MemeClass {
       removeBt.innerText = konz.symbols.remove;
       removeBt.classList.add('meme-remove-bt');
       removeBt.addEventListener('click', () => {
+        console.log('meme', meme );
         meme.remove();
       });
       meme.append(removeBt);
-    }
+    };
     return {
       addImg(formUrl) {
         if (!!formUrl) {
@@ -28,24 +29,24 @@ export class MemeClass {
         return this;
       },
       addTop(formTop) {
-        if ( !!formTop ) {
+        if (!!formTop) {
           let top       = document.createElement('div');
           top.innerHTML = formTop;
           top.classList.add('meme-text');
           top.classList.add('meme-top');
-          top.style.fontSize = konz.css.memeTextFontSize;
+          top.style.fontSize    = konz.css.memeTextFontSize;
           top.style.maxFontSize = konz.css.memeTextMaxFontSize;
           meme.append(top);
         }
         return this;
       },
       addBtm(formBtm) {
-        if ( !!formBtm ) {
+        if (!!formBtm) {
           let btm       = document.createElement('div');
           btm.innerHTML = formBtm;
           btm.classList.add('meme-text');
           btm.classList.add('meme-btm');
-          btm.style.fontSize = konz.css.memeTextFontSize;
+          btm.style.fontSize    = konz.css.memeTextFontSize;
           btm.style.maxFontSize = konz.css.memeTextMaxFontSize;
           meme.append(btm);
         }
@@ -62,17 +63,17 @@ export class MemeClass {
           this.addImg('default.png');
         }
         addRemoveBt();
-        const memeClass = new MemeClass(meme);
-        return memeClass;
+        // const memeBuilder = new MemeBuider(meme);
+        return meme;
       }
     }
   };
 
-  constructor(meme) {
-    this.meme = meme;
-  }
+  // constructor(meme) {
+  //   this.meme = meme;
+  // }
 
-  getMeme() {
-    return this.meme;
-  }
+  // static getMeme() {
+  //   return meme;
+  // }
 }

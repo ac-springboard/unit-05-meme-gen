@@ -54,8 +54,6 @@ export class FormValidation extends Exhibitionist {
 
   constructor() {
     super();
-    // this.voyeur = form;
-    // this.addVoyeur(this.voyeur);
   }
 
   validateAll() {

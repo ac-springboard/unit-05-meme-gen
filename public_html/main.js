@@ -2,8 +2,6 @@
 
 import {Form}           from './form.js';
 import {konz}           from "./constants.js";
-import {Utils}          from "./utils.js";
-import {MemeClass}      from "./meme.js";
 import {FormValidation} from "./form-validation.js";
 import {Index}          from "./index.js";
 

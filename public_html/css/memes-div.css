@@ -5,7 +5,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
-    overflow-y: scroll;
+    overflow-y: auto;
     border: 2px solid yellow;
 }
 

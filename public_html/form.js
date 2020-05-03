@@ -1,18 +1,12 @@
 'use strict';
 
-import {FormValidation as formval} from "./form-validation.js";
 import {Exhibitionist}             from "./exhibitionist.js";
 
 export class Form extends Exhibitionist {
 
   constructor() {
     super();
-    // this.formval = formval;
   }
-
-  // getFormVal() {
-  //   return this.formval;
-  // }
 
   // static init(){
   //   FormValidation.init();
@@ -31,8 +25,8 @@ export class Form extends Exhibitionist {
 
 
   update(data) {
-    console.log('Form/update(data)/data', JSON.stringify(data, null, 2));
-    console.log('-------------------');
+    // console.log('Form/update(data)/data', JSON.stringify(data, null, 2));
+    // console.log('-------------------');
     data.type = 'validation';
     this.notify(data);
   }
@@ -41,7 +35,7 @@ export class Form extends Exhibitionist {
     formval.validateAll().then((data) => {
       data.type = 'submission';
       this.notify(data);
-      console.log('form/submit/data', data);
+      // console.log('form/submit/data', data);
     });
   }
 }
