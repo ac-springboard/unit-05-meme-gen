@@ -43,8 +43,10 @@ export class konz {
       ]
       // console.log('konz.form', JSON.stringify(konz.form));
     };
-    konz.errMsg  = {
-      badWords: 'Please, avoid using bad words.'
+    konz.err  = {
+      bdw:{
+        msg: "Please, avoid to use bad words"
+      }
     };
     konz.symbols = {
       remove: '⊗'
