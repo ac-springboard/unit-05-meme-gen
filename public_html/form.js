@@ -2,6 +2,10 @@
 
 import {Exhibitionist}             from "./exhibitionist.js";
 
+/**
+ * This class observers form-validation
+ * This class is observed by index
+ */
 export class Form extends Exhibitionist {
 
   constructor() {

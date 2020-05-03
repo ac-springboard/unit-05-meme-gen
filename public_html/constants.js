@@ -42,6 +42,12 @@ export class konz {
         topErr, urlErr, btmErr
       ]
     };
+    konz.actions = {
+      meme: {
+        added: 'meme-added',
+        removed: 'meme-removed'
+      }
+    };
     konz.names = ['top', 'url', 'btm'];
     konz.err  = {
       bdw: "Please, avoid using bad words.",

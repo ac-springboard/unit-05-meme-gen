@@ -4,6 +4,9 @@ import {konz}          from "./constants.js";
 import {Exhibitionist} from "./exhibitionist.js";
 import {Utils}         from "./utils.js";
 
+/**
+ * This class is observed by form
+ */
 export class FormValidation extends Exhibitionist {
 
   static state = {
@@ -44,11 +47,11 @@ export class FormValidation extends Exhibitionist {
       };
     },
     updateErr(key, err) {
-      console.log('key, err', key, err);
+      // console.log('key, err', key, err);
       if (this[key].err.length === 0 || !this[key].err.includes(err)) {
         this[key].err.push(err);
       }
-      console.log('this[key].err', this[key].err);
+      // console.log('this[key].err', this[key].err);
     }
   };
 
@@ -73,7 +76,7 @@ export class FormValidation extends Exhibitionist {
   }
 
   onInputEvent(e) {
-    console.clear();
+    // console.clear();
     const key          = Utils.htmlIdToJs('meme-', e.target.id);
     const value        = e.target.value;
     const promiseArray = [];
