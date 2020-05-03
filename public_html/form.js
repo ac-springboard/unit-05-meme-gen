@@ -5,15 +5,14 @@ import {Exhibitionist}             from "./exhibitionist.js";
 
 export class Form extends Exhibitionist {
 
-  constructor( index ) {
+  constructor() {
     super();
-    this.formval = new formval(this);
-    this.addVoyeur( index );
+    // this.formval = formval;
   }
 
-  getFormVal() {
-    return this.formval;
-  }
+  // getFormVal() {
+  //   return this.formval;
+  // }
 
   // static init(){
   //   FormValidation.init();
@@ -35,13 +34,13 @@ export class Form extends Exhibitionist {
     console.log('Form/update(data)/data', JSON.stringify(data, null, 2));
     console.log('-------------------');
     data.type = 'validation';
-    this.notify( data );
+    this.notify(data);
   }
 
-  submit() {
-    this.formval.validateAll().then((data) => {
+  submit(formval) {
+    formval.validateAll().then((data) => {
       data.type = 'submission';
-      this.notify( data );
+      this.notify(data);
       console.log('form/submit/data', data);
     });
   }

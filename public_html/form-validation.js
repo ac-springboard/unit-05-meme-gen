@@ -52,10 +52,10 @@ export class FormValidation extends Exhibitionist {
     }
   };
 
-  constructor(form) {
+  constructor() {
     super();
-    this.voyeur = form;
-    this.addVoyeur(this.voyeur);
+    // this.voyeur = form;
+    // this.addVoyeur(this.voyeur);
   }
 
   validateAll() {

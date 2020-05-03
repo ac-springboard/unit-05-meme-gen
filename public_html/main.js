@@ -12,15 +12,17 @@ konz.init();
 // Fetish chain
 //
 const index   = new Index();
-const form    = index.getForm();
-const formval = form.getFormVal();
+const form    = new Form();
+const formval = new FormValidation();
 
+form.addVoyeur(index);
+formval.addVoyeur(form);
 
 (function () {
   konz.form.form
       .addEventListener('submit', (e) => {
         e.preventDefault();
-        form.submit();
+        form.submit( formval );
       });
 })();
 
