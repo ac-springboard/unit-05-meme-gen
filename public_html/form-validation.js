@@ -6,31 +6,7 @@ import {Exhibitionist} from "./exhibitionist.js";
 import {Utils}         from "./utils.js";
 
 export class FormValidation extends Exhibitionist {
-  // static exhibit = new Exhibitionist();
-  // static voyeur = Form;
-  // @formatter:off
-  // /*
-  //  * state template
-  //
-  // this.state = {
-  //   url: {
-  //     changed: false,
-  //     valid: false,
-  //     err: ''
-  //   },
-  //   top: {
-  //     changed: false,
-  //     valid: false,
-  //     err: ''
-  //   },
-  //   btm: {
-  //     changed: false,
-  //     valid: false,
-  //     err: ''
-  //   }
-  // };
-  // */
-  // // @formatter:on
+
   static state = {
     url: {
       valid: null,
@@ -76,83 +52,53 @@ export class FormValidation extends Exhibitionist {
     }
   };
 
-
   constructor(form) {
     super();
-    //
-    // this.state = {
-    //   isValid: function () {
-    //     return this.url.valid && this.top.valid && this.btm.valid;
-    //   }
-    // };
-
-
     this.voyeur = form;
-    this
-      .addVoyeur(this.voyeur);
-    // this.exhibit = new Exhibitionist();
-    // this.voyeur  = new Form();
-    //
-    // this.addVoyeur(voyeur);
+    this.addVoyeur(this.voyeur);
   }
 
-  onSubmit() {
-
+  onSubmit(e) {
+    FormValidation.state.resetAll();
+    const promiseArray = [];
+    promiseArray.push(this.validateUrl(konz.form.url.value));
+    promiseArray.push(this.containsBadWord('url', konz.form.url.value));
+    promiseArray.push(this.containsBadWord('top', konz.form['top'].value));
+    promiseArray.push(this.containsBadWord('btm', konz.form['btm'].value));
+    this.validatePromises(promiseArray);
   }
 
   onInputEvent(e) {
     console.clear();
-
-    const key     = Utils.htmlIdToJs('meme-', e.target.id);
-    const value   = e.target.value;
-    const self    = this;
-    const promiss = [];
-    console.log('onInputEvent', e);
-    //
-    //
-    (function () {
-      if (e.type === 'focusout') {
-        FormValidation.state.reset(key);
-        if (key === 'url') {
-          promiss.push(self.validateUrl(value));
-        }
-        const cbw = new Promise((resolve) => {
-          const valid = !self.containsBadWord(value);
-          if (!valid) {
-            FormValidation.state.updateErr(key, 'bdw');
-          }
-          resolve(valid);
-        });
-        promiss.push(cbw);
-        const result = Promise.all(promiss).then((values) => {
-          console.log('values', values);
-          self.notify(FormValidation.state);
-          console.log('--- onInputEvent ---');
-          console.log('target', e.target, 'value', value);
-          console.log('state', JSON.stringify(FormValidation.state, null, 2),
-                      '\nkey', key, 'e.type', e.type);
-        });
-        console.log('onInputEvent/result', result);
+    const key          = Utils.htmlIdToJs('meme-', e.target.id);
+    const value        = e.target.value;
+    const promiseArray = [];
+    if (e.type === 'focusout') {
+      FormValidation.state.reset(key);
+      if (key === 'url') {
+        promiseArray.push(this.validateUrl(value));
       }
-
-
-    }());
+      promiseArray.push(this.containsBadWord(key, value));
+      this.validatePromises(promiseArray);
+    }
   }
 
-  // onInputClick(e) {
-  //   const errKey                = +'Err';
-  //   const valid                 = this.validation();
-  //   konz.form[errKey].innerText = '';
-  //   // console.log('onInputFocusClick/valid', valid);
-  // }
-  //
-  // onInputFocusOut(e) {
-  //   const errKey = Utils.htmlIdToJs('meme-', e.target.id) + 'Err';
-  //   // console.log('errKey', errKey);
-  //   // const valid = formjs.validateInputs();
-  //   const valid = this.validation();
-  //   // console.log('onInputFocusOut/valid', valid);
-  // }
+  validatePromises(promiseArray) {
+    const self = this;
+    Promise.all(promiseArray).then(function () {
+      self.notify(FormValidation.state);
+    });
+  }
+
+  containsBadWord(key, value) {
+    return new Promise((resolve) => {
+      const valid = !value.toLowerCase().containsBadWords();
+      if (!valid) {
+        FormValidation.state.updateErr(key, 'bdw');
+      }
+      resolve(valid);
+    });
+  }
 
   validateUrl(imgUrl) {
     konz.init();
@@ -172,77 +118,4 @@ export class FormValidation extends Exhibitionist {
         return false;
       });
   };
-
-  // setStateChanged(obj, previous) {
-  //   obj.changed = previous === undefined ? true : obj.valid !== previous;
-  //   // console.log('obj', obj, 'obj.changed', obj.changed, 'obj.valid',
-  //   // obj.valid, 'previous', previous);
-  // }
-
-  containsBadWord(value) {
-    return value.toLowerCase().containsBadWords();
-  }
-
-  // validateInputs() {
-  //
-  //   const self = this;
-  //   return new Promise((resolve) => {
-  //     function containsBadWords(elem) {
-  //       return konz.form[elem].value.toLowerCase().containsBadWords();
-  //     }
-  //
-  //     let cbw;
-  //     let previous;
-  //     ['top', 'url', 'btm'].forEach(value => {
-  //       cbw = containsBadWords(value);
-  //       if (cbw) {
-  //         // err                 = value + 'Err';
-  //         // form[err].innerText = konz.errMsg.badWords;
-  //         console.log('value', value);
-  //         previous          =
-  //           FormValidation.state[value] === undefined ? undefined :
-  //           FormValidation.state[value].valid;
-  //         FormValidation.state[value] = {
-  //           valid: false,
-  //           err  : 'Bad Words'
-  //         };
-  //         // self.setStateChanged(FormValidation.state[value], previous);
-  //       } else {
-  //         FormValidation.state[value] = {
-  //           valid: true,
-  //           err  : ''
-  //         };
-  //       }
-  //     });
-  //     // self.notify(FormValidation.state);
-  //     resolve(FormValidation.state.isValid());
-  //   });
-  // }
-  // ;
-
-  // getState() {
-  //   return this.state;
-  // }
-
-  // validation() {
-  //   // console.clear();
-  //   konz.init();
-  //   // const self = this;
-  //   // return this.validateInputs()
-  //   //            .then(this.validateUrl())
-  //   //            .then(function (result) {
-  //   //              //
-  // console.log('***********form-validation/validation/valid', //
-  // //             result); //              return result; //            });
-  // // Form.validateInputs().then((valid) => { //   console.log('valid/1',
-  // valid); //   // valid = valid && valid; //   // console.log('valid/1a',
-  // valid); //   return valid; // }).then((valid) => { //
-  // console.log('valid/2', valid); //   valid =
-  // Form.validateUrl(konz.form.url.value) && valid; //
-  // console.log('valid/2a', valid); //   return valid; // }).then(valid => {
-  // //   console.log('submit/valid', valid); //   if (valid && isSubmit) { //
-  //    Form.goMeme(); //   } // }); }
-
 }
-
-

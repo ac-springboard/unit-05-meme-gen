@@ -19,7 +19,7 @@ const formval = new FormValidation( form );
   konz.form.form
       .addEventListener('submit', (e) => {
         e.preventDefault();
-        formval.onSubmit();
+        formval.onSubmit(e);
       });
 })();
 
