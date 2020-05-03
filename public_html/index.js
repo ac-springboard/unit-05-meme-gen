@@ -6,6 +6,7 @@
 
 import {MemeBuilder} from './meme.js';
 import {konz}        from './constants.js';
+import {Utils}       from "./utils.js";
 
 export class Index {
 
@@ -13,11 +14,13 @@ export class Index {
   }
 
   update(data) {
-    // console.log('Index/update(data)/data', JSON.stringify(data, null, 2));
-    // console.log('-------------------');
+    console.log('Index/update(data)/data', JSON.stringify(data, null, 2));
+    console.log('-------------------');
     const valid        = data.isValid();
+    console.log('VALID', valid );
     const isSubmission = data.type === 'submission';
     const isValidation = data.type === 'validation';
+    this.validationMsgs(data);
     if (isSubmission) {
       if (valid) {
         console.log('Valid submission.', 'Moving forward.');
@@ -35,6 +38,26 @@ export class Index {
     } else {
       throw new Error('Neither Validation nor Submission. I\'m confused...');
     }
+  }
+
+  validationMsgs(data) {
+    let errKey;
+    let errors;
+    let strErr;
+    konz.names.forEach(name => {
+      errKey = name + 'Err';
+      errors = data[name].err;
+      strErr = '';
+      errors.forEach(err => {
+        strErr += konz.err[err] + '<br>';
+      });
+      konz.form[errKey].innerHTML = strErr;
+    });
+  }
+
+  onInputClick(e) {
+    const key                        = Utils.htmlIdToJs('meme-', e.target.id);
+    konz.form[key + 'Err'].innerHTML = '';
   }
 
   goMeme() {

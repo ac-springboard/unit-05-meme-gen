@@ -30,8 +30,10 @@ String.prototype.containsBadWords = function () {
   const inputInnerExpressionIsABadWord = function () {
     let regexpExpression;
     for (let i = 0; i < badWords.length; i++) {
-      regexpExpression = new RegExp('\\W(' + badWords[i] + ')\\W', 'img');
+      regexpExpression = new RegExp('(\\W){0,}(' + badWords[i] + ')\\W', 'g');
+      console.log('searching for', '*'+badWords[i]+'*', 'in', '*'+value+'*' );
       if (value.match(regexpExpression)) {
+        console.log('found!');
         return true;
       }
     }

@@ -16,11 +16,15 @@ const formval = new FormValidation();
 form.addVoyeur(index);
 formval.addVoyeur(form);
 
+window.onload = function () {
+  formval.validateAll();
+};
+
 (function () {
   konz.form.form
       .addEventListener('submit', (e) => {
         e.preventDefault();
-        form.submit( formval );
+        form.submit(formval);
       });
 })();
 
@@ -28,6 +32,7 @@ formval.addVoyeur(form);
   konz.form.inputs.forEach((inputElem) => {
     inputElem.addEventListener('click', (e) => {
       console.log('Notify index.html');
+      index.onInputClick(e);
     });
     inputElem.addEventListener('focusout', (e) => {
       formval.onInputEvent(e);

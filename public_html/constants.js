@@ -42,10 +42,11 @@ export class konz {
         topErr, urlErr, btmErr
       ]
     };
+    konz.names = ['top', 'url', 'btm'];
     konz.err  = {
-      bdw:{
-        msg: "Please, avoid to use bad words"
-      }
+      bdw: "Please, avoid using bad words.",
+      "404": "Sorry. I wasn't able to find the image.",
+      "777": "Sorry, I wasn't able to reach this domain."
     };
     konz.symbols = {
       remove: '⊗'

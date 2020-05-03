@@ -120,7 +120,7 @@ export class FormValidation extends Exhibitionist {
       })
       .catch((err) => {
         FormValidation.state.url['valid'] = false;
-        FormValidation.state.updateErr('url', err.stack);
+        FormValidation.state.updateErr('url', "777");
         return false;
       });
   };
