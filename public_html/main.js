@@ -15,7 +15,7 @@ const io      = new IO();
 const index   = new Index();
 const form    = new Form();
 const formval = new FormValidation();
-const meme = new MemeBuilder();
+const meme    = new MemeBuilder();
 
 //
 // index is observed by io
@@ -30,9 +30,13 @@ formval.addVoyeur(form);
 // meme is observed by index
 meme.addVoyeur(index);
 
-window.onload = function () {
-  formval.validateAll();
-};
+
+(function () {
+  window.onload = function () {
+    io.loadList(index);
+    formval.validateAll();
+  };
+})();
 
 (function () {
   konz.form.form

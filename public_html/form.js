@@ -15,7 +15,7 @@ export class Form extends Exhibitionist {
   // static init(){
   //   FormValidation.init();
   // }
-  // static goMeme = function () {
+  // static addMemeFromForm = function () {
   //   const meme = MemeClass
   //     .builder()
   //     .addImg(konz.form.url.value)

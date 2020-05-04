@@ -18,7 +18,7 @@ export class Index extends Exhibitionist {
   static data = {
     type  : 'index',
     action: '',
-    memes: []
+    memes : []
   };
 
   constructor() {
@@ -31,7 +31,8 @@ export class Index extends Exhibitionist {
     const type = data.type;
 
     if (type === 'meme') {
-      if (data.action === 'meme-removed') {
+      if (data.action === konz.actions.meme.removed) {
+        data.memes = this.getMemesJsonArr();
         this.notify(data);
         return;
       } else {
@@ -48,7 +49,7 @@ export class Index extends Exhibitionist {
     if (isSubmission) {
       if (valid) {
         // console.log('Valid submission.', 'Moving forward.');
-        this.goMeme();
+        this.addMemeFromForm();
       } else {
         // console.log('Invalid submission.', 'Please, review the form data.');
       }
@@ -85,33 +86,71 @@ export class Index extends Exhibitionist {
     konz.form[key + 'Err'].innerHTML = '';
   }
 
-  goMeme() {
-    const meme = MemeBuilder
+  buildMeme(url, top, btm, id) {
+    return MemeBuilder
       .builder()
-      .addImg(konz.form.url.value)
-      .addTop(konz.form.top.value)
-      .addBtm(konz.form.btm.value)
-      .build();
+      .addImg(url)
+      .addTop(top)
+      .addBtm(btm)
+      .build(id);
+  }
 
-    konz.divs.memes.append(meme);
-    konz.divs.memes.scrollTop = konz.divs.memes.scrollHeight;
-
+  updateIndexData() {
     Index.data.action = konz.actions.meme.added;
-    const memes       = konz.divs.memes.children;
-    const memesArr    = [...memes];
-    Index.data.memes = [];
-    memesArr.forEach( m => {
-      console.log('m', m);
-      Index.data.memes.push({
-                      id : m.id,
-                      url: m.dataset.url,
-                      top: m.dataset.top,
-                      btm: m.dataset.btm
-                    });
-    });
+
+    Index.data.memes = this.getMemesJsonArr();
+
+    // const memes       = konz.divs.memes.children;
+    // const memesArr    = [...memes];
+    // Index.data.memes  = [];
+    // memesArr.forEach(m => {
+    //   console.log('m', m);
+    //   Index.data.memes.push({
+    //                           id : m.id,
+    //                           url: m.dataset.url,
+    //                           top: m.dataset.top,
+    //                           btm: m.dataset.btm
+    //                         });
+    // });
     console.log('Index.data', Index.data);
     this.notify(Index.data);
   }
 
+  getMemesJsonArr(){
+    const jsonArr = [];
+    const memesArr = [ ...konz.divs.memes.children];
+    memesArr.forEach( m => {
+      jsonArr.push({
+        id : m.id,
+          url: m.dataset.url,
+          top: m.dataset.top,
+          btm: m.dataset.btm
+      });
+    });
+    return jsonArr;
+  }
+
+  addMemeFromForm() {
+    const meme = this.buildMeme(konz.form.url.value, konz.form.top.value,
+                                konz.form.btm.value);
+    this.appendMeme(meme);
+    this.updateIndexData();
+  }
+
+  appendMeme(meme) {
+    konz.divs.memes.append(meme);
+    konz.divs.memes.scrollTop = konz.divs.memes.scrollHeight;
+  }
+
+  addLoadedMemes(loadedMemes) {
+    console.log('loadedMemes', loadedMemes);
+    let meme;
+    loadedMemes.forEach(loadedMeme => {
+      meme =
+        this.buildMeme(loadedMeme.url, loadedMeme.top, loadedMeme.btm,
+                       loadedMeme.id);
+      this.appendMeme(meme);
+    });
+  }
 
 }
