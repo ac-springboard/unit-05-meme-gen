@@ -26,8 +26,6 @@ export class Index extends Exhibitionist {
   }
 
   update(data) {
-    // console.log('Index/update(data)/data', JSON.stringify(data, null, 2));
-    // console.log('-------------------');
     const type = data.type;
 
     if (type === 'meme') {
@@ -36,33 +34,36 @@ export class Index extends Exhibitionist {
         this.notify(data);
         return;
       } else {
+        // TODO: Move message to konz
         throw new Error("Error. I don't understand the action '" + data.action +
                         "' from meme.js");
       }
     }
 
     const valid        = data.isValid();
-    // console.log('VALID', valid );
     const isSubmission = type === 'submission';
     const isValidation = type === 'validation';
     this.validationMsgs(data);
     if (isSubmission) {
       if (valid) {
-        // console.log('Valid submission.', 'Moving forward.');
+        // TODO: Front-end message instead of console.log('Valid submission.',
+        // 'Moving forward.');
         this.addMemeFromForm();
       } else {
-        // console.log('Invalid submission.', 'Please, review the form data.');
+        // TODO: Front-end message instead of console.log('Invalid
+        // submission.', 'Please, review the form data.');
       }
     } else if (isValidation) {
 
       if (valid) {
-        // console.log('Valid data.', 'Submit?');
+        // TODO: Front-end message instead of console.log('Valid data.',
+        // 'Submit?');
       } else {
         // console.log('Invalid data.', 'Back to form...');
       }
     } else {
-      throw new Error(
-        "Error. Neither Validation nor Submission from 'form-js'");
+      throw new Error(// TODO: Move message to konz
+                      "Error. Neither Validation nor Submission from 'form-js'");
     }
   }
 
@@ -97,35 +98,20 @@ export class Index extends Exhibitionist {
 
   updateIndexData() {
     Index.data.action = konz.actions.meme.added;
-
-    Index.data.memes = this.getMemesJsonArr();
-
-    // const memes       = konz.divs.memes.children;
-    // const memesArr    = [...memes];
-    // Index.data.memes  = [];
-    // memesArr.forEach(m => {
-    //   console.log('m', m);
-    //   Index.data.memes.push({
-    //                           id : m.id,
-    //                           url: m.dataset.url,
-    //                           top: m.dataset.top,
-    //                           btm: m.dataset.btm
-    //                         });
-    // });
-    console.log('Index.data', Index.data);
+    Index.data.memes  = this.getMemesJsonArr();
     this.notify(Index.data);
   }
 
-  getMemesJsonArr(){
-    const jsonArr = [];
-    const memesArr = [ ...konz.divs.memes.children];
-    memesArr.forEach( m => {
+  getMemesJsonArr() {
+    const jsonArr  = [];
+    const memesArr = [...konz.divs.memes.children];
+    memesArr.forEach(m => {
       jsonArr.push({
-        id : m.id,
-          url: m.dataset.url,
-          top: m.dataset.top,
-          btm: m.dataset.btm
-      });
+                     id : m.id,
+                     url: m.dataset.url,
+                     top: m.dataset.top,
+                     btm: m.dataset.btm
+                   });
     });
     return jsonArr;
   }
@@ -143,7 +129,6 @@ export class Index extends Exhibitionist {
   }
 
   addLoadedMemes(loadedMemes) {
-    console.log('loadedMemes', loadedMemes);
     let meme;
     loadedMemes.forEach(loadedMeme => {
       meme =

@@ -21,10 +21,10 @@ const mainDiv  = document.querySelector('#main-div');
 export class konz {
 
   static init() {
-    konz.divs = {
-      main: mainDiv,
-      left: leftDiv,
-      info: infoDiv,
+    konz.divs    = {
+      main : mainDiv,
+      left : leftDiv,
+      info : infoDiv,
       memes: memesDiv
     };
     konz.form    = {
@@ -44,13 +44,13 @@ export class konz {
     };
     konz.actions = {
       meme: {
-        added: 'meme-added',
+        added  : 'meme-added',
         removed: 'meme-removed'
       }
     };
-    konz.names = ['top', 'url', 'btm'];
-    konz.err  = {
-      bdw: "Please, avoid using bad words.",
+    konz.names   = ['top', 'url', 'btm'];
+    konz.err     = {
+      bdw  : "Please, avoid using bad words.",
       "404": "Sorry. I wasn't able to find the image.",
       "777": "Sorry, I wasn't able to reach this domain."
     };
@@ -58,7 +58,7 @@ export class konz {
       remove: '⊗'
     };
     konz.css     = {
-      memeTextFontSize: '2.2vw',
+      memeTextFontSize   : '2.2vw',
       memeTextMaxFontSize: '3.2vw'
     }
   }

@@ -6,7 +6,6 @@
     flex-wrap: wrap;
     align-items: flex-end;
     overflow-y: auto;
-    border: 2px solid yellow;
 }
 
 .meme-container-remove-bt {

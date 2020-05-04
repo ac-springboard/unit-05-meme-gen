@@ -30,7 +30,6 @@ formval.addVoyeur(form);
 // meme is observed by index
 meme.addVoyeur(index);
 
-
 (function () {
   window.onload = function () {
     io.loadList(index);
@@ -49,7 +48,6 @@ meme.addVoyeur(index);
 (function () {
   konz.form.inputs.forEach((inputElem) => {
     inputElem.addEventListener('click', (e) => {
-      console.log('Notify index.html');
       index.onInputClick(e);
     });
     inputElem.addEventListener('focusout', (e) => {

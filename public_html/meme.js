@@ -13,17 +13,10 @@ export class MemeBuilder extends Exhibitionist {
     action: ''
   };
   static self;
-
-  constructor() {
-    super();
-    MemeBuilder.self = this;
-  }
-
   static builder = function () {
 
     const meme        = document.createElement('div');
     let hasImg        = false;
-    let count         = 0;
     const addRemoveBt = function () {
       let removeBt       = document.createElement('div');
       removeBt.innerText = konz.symbols.remove;
@@ -78,26 +71,19 @@ export class MemeBuilder extends Exhibitionist {
       },
       build() {
         meme.classList.add('meme-elem');
-        let id           = String(Math.random() * 1000);
-        // console.log('sid', id);
-        meme.id          = id;
-        // console.log('hasImg', hasImg);
+        let id  = String(Math.random() * 1000);
+        meme.id = id;
         if (!hasImg) {
-          // this.addImg(Math.random() < 0.5 ? 'default.png' : 'small.png');
           this.addImg('default.png');
         }
         addRemoveBt();
-        // const memeBuilder = new MemeBuider(meme);
         return meme;
       }
     }
   };
 
-  // constructor(meme) {
-  //   this.meme = meme;
-  // }
-
-  // static getMeme() {
-  //   return meme;
-  // }
+  constructor() {
+    super();
+    MemeBuilder.self = this;
+  }
 }

@@ -8,7 +8,6 @@ String.prototype.containsBadWords = function () {
   const regexpWord = /\w+/g;
   const value      = this.valueOf().toLowerCase();
   const words      = value.match(regexpWord);
-  // console.log('words', words);
 
   const emptyInput = function () {
     return !words;
@@ -32,7 +31,6 @@ String.prototype.containsBadWords = function () {
     for (let i = 0; i < badWords.length; i++) {
       regexpExpression = new RegExp('(\\W){0,}(' + badWords[i] + ')\\W', 'g');
       if (value.match(regexpExpression)) {
-        console.log('found!');
         return true;
       }
     }

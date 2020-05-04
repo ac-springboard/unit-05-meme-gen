@@ -11,15 +11,15 @@ export class FormValidation extends Exhibitionist {
 
   static state = {
     type: '',
-    url: {
+    url : {
       valid: null,
       err  : []
     },
-    top: {
+    top : {
       valid: null,
       err  : []
     },
-    btm: {
+    btm : {
       valid: null,
       err  : []
     },
@@ -47,11 +47,9 @@ export class FormValidation extends Exhibitionist {
       };
     },
     updateErr(key, err) {
-      // console.log('key, err', key, err);
       if (this[key].err.length === 0 || !this[key].err.includes(err)) {
         this[key].err.push(err);
       }
-      // console.log('this[key].err', this[key].err);
     }
   };
 
@@ -68,10 +66,10 @@ export class FormValidation extends Exhibitionist {
       promiseArray.push(self.containsBadWord('url', konz.form.url.value));
       promiseArray.push(self.containsBadWord('top', konz.form['top'].value));
       promiseArray.push(self.containsBadWord('btm', konz.form['btm'].value));
-      const result = self.validatePromises(promiseArray).then(function() {
+      const result = self.validatePromises(promiseArray).then(function () {
         return FormValidation.state;
       });
-      resolve( result );
+      resolve(result);
     });
   }
 
@@ -100,7 +98,7 @@ export class FormValidation extends Exhibitionist {
 
   containsBadWord(key, value) {
     return new Promise((resolve) => {
-      const valid = !value.toLowerCase().containsBadWords();
+      const valid                     = !value.toLowerCase().containsBadWords();
       FormValidation.state[key].valid = valid;
       if (!valid) {
         FormValidation.state.updateErr(key, 'bdw');
@@ -121,7 +119,7 @@ export class FormValidation extends Exhibitionist {
         }
         return valid;
       })
-      .catch((err) => {
+      .catch(() => {
         FormValidation.state.url['valid'] = false;
         FormValidation.state.updateErr('url', "777");
         return false;

@@ -33,7 +33,6 @@
     bottom: 0;
 }
 
-
 .meme-remove-bt {
     position: absolute;
     top: -2.10vw;
@@ -47,11 +46,11 @@
     transition: 0.7s;
 }
 
-.meme-elem:hover .meme-remove-bt{
+.meme-elem:hover .meme-remove-bt {
     opacity: 1;
-    /*color: rgb( 255, 255, 0);*/
     transition: 0.7s;
 }
+
 .meme-remove-bt:hover {
     opacity: 1;
     color: red;
