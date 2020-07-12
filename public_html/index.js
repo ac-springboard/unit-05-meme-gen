@@ -13,15 +13,9 @@ import {Exhibitionist} from "./exhibitionist.js";
 
 /**
  * This class observes form
- * This class is observed by io
+ * This class is observed by ion
  */
 export class Index extends Exhibitionist {
-
-  static data = {
-    type  : 'index',
-    action: '',
-    memes : []
-  };
 
   constructor() {
     super();
@@ -139,5 +133,11 @@ export class Index extends Exhibitionist {
       this.appendMeme(meme);
     });
   }
-
 }
+
+Index.data = {
+  type  : 'index',
+  action: '',
+  memes : []
+};
+

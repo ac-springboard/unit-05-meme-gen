@@ -1,0 +1,44 @@
+public_html/constants.js: line 12, col 13, Redefinition of 'top'.
+public_html/constants.js: line 63, col 6, Missing semicolon.
+
+public_html/form-validation.js: line 12, col 16, Class properties must be methods. Expected '(' but instead saw '='.
+public_html/form-validation.js: line 13, col 9, Class properties must be methods. Expected '(' but instead saw ':'.
+public_html/form-validation.js: line 28, col 6, Unexpected ','.
+public_html/form-validation.js: line 34, col 6, Unexpected ','.
+public_html/form-validation.js: line 48, col 6, Unexpected ','.
+public_html/form-validation.js: line 54, col 4, Unnecessary semicolon.
+public_html/form-validation.js: line 56, col 16, Missing semicolon.
+public_html/form-validation.js: line 57, col 5, Super call may only be used within class method bodies.
+public_html/form-validation.js: line 60, col 16, Missing semicolon.
+public_html/form-validation.js: line 61, col 18, If a strict mode function is executed using function invocation, its 'this' value will be undefined.
+public_html/form-validation.js: line 67, col 62, ['top'] is better written in dot notation.
+public_html/form-validation.js: line 68, col 62, ['btm'] is better written in dot notation.
+public_html/form-validation.js: line 76, col 18, Missing semicolon.
+public_html/form-validation.js: line 84, col 27, If a strict mode function is executed using function invocation, its 'this' value will be undefined.
+public_html/form-validation.js: line 86, col 25, If a strict mode function is executed using function invocation, its 'this' value will be undefined.
+public_html/form-validation.js: line 87, col 7, If a strict mode function is executed using function invocation, its 'this' value will be undefined.
+public_html/form-validation.js: line 91, col 33, Missing semicolon.
+public_html/form-validation.js: line 92, col 18, If a strict mode function is executed using function invocation, its 'this' value will be undefined.
+public_html/form-validation.js: line 99, col 30, Missing semicolon.
+public_html/form-validation.js: line 110, col 22, Missing semicolon.
+public_html/form-validation.js: line 112, col 12, If a strict mode function is executed using function invocation, its 'this' value will be undefined.
+public_html/form-validation.js: line 116, col 33, ['valid'] is better written in dot notation.
+public_html/form-validation.js: line 123, col 33, ['valid'] is better written in dot notation.
+public_html/form-validation.js: line 127, col 4, Unnecessary semicolon.
+public_html/form-validation.js: line 127, col 4, Unrecoverable syntax error. (98% scanned).
+
+public_html/index.js: line 20, col 15, Class properties must be methods. Expected '(' but instead saw '='.
+public_html/index.js: line 21, col 11, Class properties must be methods. Expected '(' but instead saw ':'.
+
+public_html/main.js: line 13, col 1, Expected an assignment or function call and instead saw an expression.
+public_html/main.js: line 13, col 9, Missing semicolon.
+public_html/main.js: line 13, col 1, 'abcdefgh' is not defined.
+
+public_html/meme.js: line 11, col 15, Class properties must be methods. Expected '(' but instead saw '='.
+public_html/meme.js: line 12, col 11, Class properties must be methods. Expected '(' but instead saw ':'.
+public_html/meme.js: line 82, col 6, Missing semicolon.
+public_html/meme.js: line 83, col 4, Unnecessary semicolon.
+
+public_html/voyeur.js: line 9, col 4, Unnecessary semicolon.
+
+37 errors

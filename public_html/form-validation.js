@@ -9,50 +9,6 @@ import {Utils}         from "./utils.js";
  */
 export class FormValidation extends Exhibitionist {
 
-  static state = {
-    type: '',
-    url : {
-      valid: null,
-      err  : []
-    },
-    top : {
-      valid: null,
-      err  : []
-    },
-    btm : {
-      valid: null,
-      err  : []
-    },
-    isValid() {
-      return this.url.valid && this.top.valid && this.btm.valid;
-    },
-    reset(key) {
-      this[key] = {
-        valid: null,
-        err  : []
-      };
-    },
-    resetAll() {
-      this.url = {
-        valid: null,
-        err  : []
-      };
-      this.top = {
-        valid: null,
-        err  : []
-      };
-      this.btm = {
-        valid: null,
-        err  : []
-      };
-    },
-    updateErr(key, err) {
-      if (this[key].err.length === 0 || !this[key].err.includes(err)) {
-        this[key].err.push(err);
-      }
-    }
-  };
-
   constructor() {
     super();
   }
@@ -64,8 +20,8 @@ export class FormValidation extends Exhibitionist {
       const promiseArray = [];
       promiseArray.push(self.validateUrl(konz.form.url.value));
       promiseArray.push(self.containsBadWord('url', konz.form.url.value));
-      promiseArray.push(self.containsBadWord('top', konz.form['top'].value));
-      promiseArray.push(self.containsBadWord('btm', konz.form['btm'].value));
+      promiseArray.push(self.containsBadWord('top', konz.form.top.value));
+      promiseArray.push(self.containsBadWord('btm', konz.form.btm.value));
       const result = self.validatePromises(promiseArray).then(function () {
         return FormValidation.state;
       });
@@ -109,20 +65,70 @@ export class FormValidation extends Exhibitionist {
 
   validateUrl(imgUrl) {
     konz.init();
-    self = this;
+    const self = this;
     return fetch(imgUrl)
       .then((response) => {
         const valid                       = response.status === 200;
-        FormValidation.state.url['valid'] = valid;
+        FormValidation.state.url.valid = valid;
         if (!valid) {
           FormValidation.state.updateErr('url', response.status);
         }
         return valid;
       })
       .catch(() => {
-        FormValidation.state.url['valid'] = false;
+        FormValidation.state.url.valid = false;
         FormValidation.state.updateErr('url', "777");
         return false;
       });
-  };
+  }
 }
+
+/*
+I dont' like this definition much but jshint was throwing an error
+( Class properties must be methods. Expected '(' but instead saw '='. )
+and I can't re-write this code for now.
+*/
+
+FormValidation.state = {
+  type: '',
+  url : {
+    valid: null,
+    err  : []
+  },
+  top : {
+    valid: null,
+    err  : []
+  },
+  btm : {
+    valid: null,
+    err  : []
+  },
+  isValid() {
+    return this.url.valid && this.top.valid && this.btm.valid;
+  },
+  reset(key) {
+    this[key] = {
+      valid: null,
+      err  : []
+    };
+  },
+  resetAll() {
+    this.url = {
+      valid: null,
+      err  : []
+    };
+    this.top = {
+      valid: null,
+      err  : []
+    };
+    this.btm = {
+      valid: null,
+      err  : []
+    };
+  },
+  updateErr(key, err) {
+    if (this[key].err.length === 0 || !this[key].err.includes(err)) {
+      this[key].err.push(err);
+    }
+  }
+};

@@ -8,13 +8,7 @@ import {Exhibitionist} from "./exhibitionist.js";
  */
 export class MemeBuilder extends Exhibitionist {
 
-  static data = {
-    type  : 'meme',
-    action: ''
-  };
-  static self;
-  static builder = function () {
-
+  static get builder() {
     const meme        = document.createElement('div');
     let hasImg        = false;
     const addRemoveBt = function () {
@@ -79,11 +73,23 @@ export class MemeBuilder extends Exhibitionist {
         addRemoveBt();
         return meme;
       }
-    }
-  };
+    };
+  }
 
   constructor() {
     super();
     MemeBuilder.self = this;
   }
 }
+
+/*
+ I dont' like this definition much but jshint was throwing an error
+ ( Class properties must be methods. Expected '(' but instead saw '='. )
+ and I can't re-write this code for now.
+ */
+
+MemeBuilder.data = {
+  type  : 'meme',
+  action: ''
+};
+MemeBuilder.self=null;

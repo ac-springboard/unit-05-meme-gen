@@ -9,7 +9,7 @@ const mainDiv  = document.querySelector('#main-div');
   const leftDiv  = document.querySelector('#left-div');
     const infoDiv  = document.querySelector('#info-div');
     const formDiv  = document.querySelector('#form-div');
-      const top    = document.querySelector('#meme-top');
+      const tope    = document.querySelector('#meme-top');
       const topErr = document.querySelector('#meme-top-err');
       const url    = document.querySelector('#meme-url');
       const urlErr = document.querySelector('#meme-url-err');
@@ -29,7 +29,7 @@ export class konz {
     };
     konz.form    = {
       form  : formDiv,
-      top   : top,
+      top   : tope,
       topErr: topErr,
       url   : url,
       urlErr: urlErr,
@@ -60,7 +60,7 @@ export class konz {
     konz.css     = {
       memeTextFontSize   : '2.2vw',
       memeTextMaxFontSize: '3.2vw'
-    }
+    };
   }
 }
 

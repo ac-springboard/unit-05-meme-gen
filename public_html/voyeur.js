@@ -6,5 +6,5 @@
  */
 export class Voyeur {
   update() {
-  };
+  }
 }

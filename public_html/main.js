@@ -10,8 +10,6 @@ import {MemeBuilder}    from "./meme.js";
 
 konz.init();
 
-abcdefgh
-
 // Fetish chain
 //
 const io      = new IO();
