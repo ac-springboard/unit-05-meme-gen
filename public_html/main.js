@@ -10,7 +10,7 @@ import {MemeBuilder}    from "./meme.js";
 
 konz.init();
 
-abcdefg
+abcdefgh
 
 // Fetish chain
 //
