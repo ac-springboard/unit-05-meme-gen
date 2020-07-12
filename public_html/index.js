@@ -9,6 +9,8 @@ import {konz}          from './constants.js';
 import {Utils}         from "./utils.js";
 import {Exhibitionist} from "./exhibitionist.js";
 
+// TODO: Fix the files' and classes's names
+
 /**
  * This class observes form
  * This class is observed by io
