@@ -1,5 +1,6 @@
 'use strict';
 
+// import section
 import {Form}           from './form.js';
 import {konz}           from "./constants.js";
 import {FormValidation} from "./form-validation.js";
